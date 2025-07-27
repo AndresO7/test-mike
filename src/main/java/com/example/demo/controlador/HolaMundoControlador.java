@@ -15,7 +15,7 @@ public class HolaMundoControlador {
      * Endpoint que devuelve un saludo simple como texto plano
      * @return String con el mensaje "Hola Mundo" a
      */
-    @GetMapping("/hola-simple")
+    @GetMapping("/hola-simple1")
     public String obtenerHolaMundoSimple() {
         return "Hola Mundo";
     }
