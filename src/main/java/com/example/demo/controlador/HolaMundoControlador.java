@@ -13,7 +13,7 @@ public class HolaMundoControlador {
 
     /**
      * Endpoint que devuelve un saludo simple como texto plano
-     * @return String con el mensaje "Hola Mundo"
+     * @return String con el mensaje "Hola Mundo" a
      */
     @GetMapping("/hola-simple")
     public String obtenerHolaMundoSimple() {
