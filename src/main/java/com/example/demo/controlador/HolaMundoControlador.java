@@ -15,6 +15,13 @@ public class HolaMundoControlador {
      * Endpoint que devuelve un saludo simple como texto plano
      * @return String con el mensaje "Hola Mundo" a
      */
+    @GetMapping("/health")  // ← IMPORTANTE: Agrega este endpoint
+    public ResponseEntity<Map<String, String>> health() {
+        Map<String, String> status = new HashMap<>();
+        status.put("status", "UP");
+        status.put("service", "analisis");
+        return ResponseEntity.ok(status);
+    }
     @GetMapping("/hola-simple1")
     public String obtenerHolaMundoSimple() {
         return "Hola Mundo";
