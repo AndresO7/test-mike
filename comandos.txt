@@ -1,7 +1,0 @@
-docker build -t banquito-prestamos-analisis:latest . 
-
-aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 309114413968.dkr.ecr.us-east-2.amazonaws.com
-
-docker tag banquito-prestamos-analisis:latest 309114413968.dkr.ecr.us-east-2.amazonaws.com/banquito-prestamos-analisis:latest
-
-docker push 309114413968.dkr.ecr.us-east-2.amazonaws.com/banquito-prestamos-analisis:latest 
