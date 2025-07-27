@@ -11,7 +11,7 @@ env:
   ECR_REGISTRY: 309114413968.dkr.ecr.us-east-2.amazonaws.com
   ECR_REPOSITORY: banquito-prestamos-analisis
   ECS_CLUSTER: banquito-cluster
-  ECS_SERVICE: analisis
+  ECS_SERVICE: banquito-prestamos-analisis
   CONTAINER_NAME: analisis-container
 
 jobs:
