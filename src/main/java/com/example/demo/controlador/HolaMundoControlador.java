@@ -39,6 +39,34 @@ public class HolaMundoControlador {
         status.put("service", "analisis");
         return ResponseEntity.ok(status);
     }
+
+    /**
+     * Health check específico del servicio de análisis
+     * Responde a: /api/analisis/health
+     * @return ResponseEntity con estado detalladoasasas
+     */
+    @GetMapping("/api/analisis/health")
+    public ResponseEntity<Map<String, Object>> analisisHealth() {
+        Map<String, Object> status = new HashMap<>();
+        status.put("status", "UP");
+        status.put("service", "analisis");
+        status.put("version", "1.0.0");
+        status.put("timestamp", System.currentTimeMillis());
+        status.put("database", "connected");
+        
+        return ResponseEntity.ok(status);
+    }
+
+    /**
+     * Endpoint simple del servicio de análisis
+     * Responde a: /api/analisis/hola
+     * @return String con mensaje simple
+     */
+    @GetMapping("/api/analisis/hola")
+    public String analisisHolaSimple() {
+        return "Hola Mundo desde el servicio de análisis";
+    }
+
     @GetMapping("/hola-simple1")
     public String obtenerHolaMundoSimple() {
         return "Hola Mundo";
