@@ -12,10 +12,27 @@ import java.util.HashMap;
 public class HolaMundoControlador {
 
     /**
-     * Endpoint que devuelve un saludo simple como texto plano
-     * @return String con el mensaje "Hola Mundo" a
+     * Endpoint principal que coincide con la ruta del ALB
+     * Responde a: /api/analisis
+     * @return ResponseEntity con información del servicio
      */
-    @GetMapping("/health")  // ← IMPORTANTE: Agrega este endpoint
+    @GetMapping("/api/analisis")
+    public ResponseEntity<Map<String, Object>> analisisEndpoint() {
+        Map<String, Object> respuesta = new HashMap<>();
+        respuesta.put("servicio", "API Analisis");
+        respuesta.put("mensaje", "Hola Mundo desde el servicio de análisis");
+        respuesta.put("estado", "activo");
+        respuesta.put("version", "1.0.0");
+        respuesta.put("timestamp", System.currentTimeMillis());
+        
+        return ResponseEntity.ok(respuesta);
+    }
+
+    /**
+     * Health check endpoint para el ALB
+     * @return ResponseEntity con estado del servicio
+     */
+    @GetMapping("/health")
     public ResponseEntity<Map<String, String>> health() {
         Map<String, String> status = new HashMap<>();
         status.put("status", "UP");
